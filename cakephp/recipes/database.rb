@@ -6,8 +6,14 @@ node[:deploy].each do |application, deploy|
 
 	template "#{deploy[:deploy_to]}/current/app/Config/database.php" do
 		source "database.php.erb"
-		owner "root"
-		group "root"
+		group deploy[:group]
+
+		if platform?("ubuntu")
+			owner "www-data"
+		elsif platform?("amazon")   
+			owner "apache"
+		end
+
 		mode "0644"
 		variables(
 			:db_host		=> (deploy[:database][:host] rescue nil),
