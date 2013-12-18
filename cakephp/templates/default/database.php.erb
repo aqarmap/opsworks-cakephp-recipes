@@ -1,0 +1,26 @@
+<?php
+
+class DATABASE_CONFIG
+{
+	public $default = array(
+		'datasource'	=> 'Database/Mysql',
+		'persistent'	=> FALSE,
+		'host'			=> '<%= @db_host %>',
+		'login'			=> '<%= @db_user %>',
+		'password'		=> '<%= @db_password %>',
+		'database'		=> '<%= @db_name %>',
+		'prefix'		=> '',
+		'encoding'		=> 'utf8',
+	);
+
+	public $test = array(
+		'datasource'	=> 'Database/Mysql',
+		'persistent'	=> FALSE,
+		'host'			=> '127.0.0.1',
+		'login'			=> 'user',
+		'password'		=> 'password',
+		'database'		=> 'test_database_name',
+		'prefix'		=> '',
+		'encoding'		=> 'utf8',
+	);
+}
